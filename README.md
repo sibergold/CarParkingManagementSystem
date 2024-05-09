@@ -1,5 +1,14 @@
 # CarParking
 
+![cargif](https://github.com/sibergold/CarParkingManagementSystem/assets/111015033/73edbcd2-6a06-40fc-82fa-c4e94a3b6cc1)
+
+
+
+
+
+
+
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.3.5.
 
 ## Development server
