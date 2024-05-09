@@ -1,0 +1,115 @@
+/* Reset default margin and padding */
+body,
+h1,
+h2,
+p,
+ul,
+li {
+    margin: 0;
+    padding: 0;
+}
+
+/* Global styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    color: #333;
+}
+
+/* Header styles */
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 10px 0;
+    text-align: center;
+}
+
+/* Sidebar styles */
+.sidebar {
+    background-color: #222;
+    color: #fff;
+    width: 200px;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    overflow-y: auto;
+}
+
+.sidebar ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.sidebar ul li {
+    padding: 10px;
+    border-bottom: 1px solid #444;
+}
+
+.sidebar ul li a {
+    color: #fff;
+    text-decoration: none;
+    display: block;
+}
+
+.sidebar ul li a:hover {
+    background-color: #444;
+}
+
+/* Content styles */
+.content {
+    margin-left: 200px;
+    /* Same width as sidebar */
+    padding: 20px;
+}
+
+/* Sample content styles */
+.parking-lot {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.parking-spot {
+    width: 100px;
+    height: 100px;
+    background-color: #ccc;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+    font-weight: bold;
+    color: #555;
+    position: relative;
+}
+
+.parking-spot-booked {
+    width: 100px;
+    height: 100px;
+    background-color: #aaffaa;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: end;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #555;
+    position: relative;
+}
+
+.car {
+    font-size: 37px;
+    color: #095cb4;
+    position: absolute;
+    bottom: 35%;
+
+}
+
+.car-no {
+    font-size: 12px;
+    color: #095cb4;
+    position: absolute;
+    bottom: 22%;
+}

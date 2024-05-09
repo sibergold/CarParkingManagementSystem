@@ -1,0 +1,118 @@
+<div class="row">
+    <div class="col-10 text-center">
+        <div class="btn-group">
+            @for(item of parkingLotList;track $index)
+            {
+            <button type="button"
+                [ngClass]="selectedParkingLot.parkingLotId==item.parkingLotId? 'btn-success' : 'btn-primary'"
+                class="btn" (click)="setSelectedParkingLot(item)">{{item.parkingLotName}}</button>
+            }
+        </div>
+    </div>
+    <!-- <div class="col-2">
+        <button type="button" class="btn btn-primary"> <i class="fa fa-plus mx-2"></i>New </button>
+    </div> -->
+</div>
+<div class="parking-lot pt-2">
+
+    @for (item of parkingSpotList; track $index)
+    {
+    @if(checkIfParkingSpotBooked(item) != undefined)
+    {
+    <div class="parking-spot-booked" (click)="openReleaseModel(checkIfParkingSpotBooked(item))">
+        <div class="car">
+            <i class="fa fa-car"></i>
+
+        </div>
+        <div class="car-no">
+            <small>{{checkIfParkingSpotBooked(item).vehicleNo}}</small>
+        </div>
+        {{item}}
+    </div>
+    }
+    @else
+    {
+    <div class="parking-spot" (click)="openModel(item)">{{item}}</div>
+    }
+    }
+
+</div>
+
+<div class="modal" id="bookModal">
+    <div class="modal-dialog modal-md">
+        <div class="modal-content">
+            <div class="modal-header bg-warning">
+                <h4 class="modal-title">In Entry</h4>
+                <button type="button" class="btn-close" (click)="closeModel()" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-6">
+                        <label for="">Spot No</label>
+                        <input type="text" [(ngModel)]="bookingObj.spotNo" [value]="selectedParkingSpotNo"
+                            class="form-control" disabled>
+                    </div>
+                    <div class="col-6">
+                        <label for="">Vehicle No</label>
+                        <input type="text" [(ngModel)]="bookingObj.vehicleNo" class="form-control"
+                            placeholder="Enter Vehicle No">
+                    </div>
+                    <div class="col-6">
+                        <label for="">In-Time</label>
+                        <input type="text" [(ngModel)]="bookingObj.inTime" class="form-control"
+                            placeholder="Enter In-Time">
+                    </div>
+                    <div class="col-6">
+                        <label for="">Mobile No</label>
+                        <input type="text" [(ngModel)]="bookingObj.mobileNo" class="form-control" placeholder="Enter Your 10-Digit Number
+                        ">
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" (click)="closeModel()">Cancel</button>
+                <button type="button" class="btn btn-success" (click)="onBook()">Book</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal" id="releaseBookModal">
+    <div class="modal-dialog modal-md">
+        <div class="modal-content">
+            <div class="modal-header bg-warning">
+                <h4 class="modal-title">Out Entry</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" (click)="closeReleaseModel()"></button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-6">
+                        <label for="">Spot No</label>
+                        <input type="text" value="2" class="form-control" disabled>
+                    </div>
+                    <div class="col-6">
+                        <label for="">Vehicle No</label>
+                        <input type="text" value="MH-22 m-2233" class="form-control" disabled
+                            placeholder="Enter Vehicle No">
+                    </div>
+                    <div class="col-6">
+                        <label for="">In-Time</label>
+                        <input type="text" value="12.20" class="form-control" disabled placeholder="Enter In-Time" disabled>
+                    </div>
+                    <div class="col-6">
+                        <label for="">Mobile No</label>
+                        <input type="text" value="9988776677" class="form-control" disabled placeholder="Enter Mobile" disabled>
+                    </div>
+                    <div class="col-6">
+                        <label for="">Out-Time</label>
+                        <input type="text" value="1.30" class="form-control" [(ngModel)]="selectParkingObj.outTime" placeholder="Enter In-Time">
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" (click)="closeReleaseModel()">Cancel</button>
+                <button type="button" class="btn btn-success" (click)="releaseSpot()">Mark Out</button>
+            </div>
+        </div>
+    </div>
+</div>
